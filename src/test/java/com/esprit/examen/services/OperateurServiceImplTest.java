@@ -10,15 +10,21 @@ import java.util.List;
 
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import com.esprit.examen.entities.Operateur;
 import com.esprit.examen.entities.Stock;
 import com.esprit.examen.repositories.OperateurRepository;
 import com.esprit.examen.repositories.StockRepository;
 
+
+@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 public class OperateurServiceImplTest {
 	
 Logger log= (Logger) LoggerFactory.getLogger(OperateurServiceImplTest.class);
