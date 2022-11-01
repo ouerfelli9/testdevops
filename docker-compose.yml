@@ -1,0 +1,23 @@
+version: '2.2'
+services:
+  database:
+    image: mysql:8
+    container_name: mysqldb1
+    environment:
+      MYSQL_DATABASE: tpachato
+      MYSQL_USER: oussema
+      MYSQL_PASSWORD: ouss
+      MYSQL_ROOT_PASSWORD: ouss
+    ports:
+      - 3306:3306
+
+    volumes:
+      - /home/mysql/data:/var/lib/mysql
+  spring-boot:
+    build: ./
+    container_name: spring
+    ports:
+      - 8089:8089
+    depends_on:
+      - database
+    restart: on-failure
